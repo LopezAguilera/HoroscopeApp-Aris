@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Your Future</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment_palmistry">PALMISTRY</string>
+    <string name="hello_blank_fragment_lucky">LUCKY</string>
+    <string name="hello_blank_fragment_horoscope">HOROSCOPE</string>
+
+
+    <!--Bottom_Bar-->
+    <string name="horoscope">Horoscope</string>
+    <string name="palmistry">Palmistry</string>
+    <string name="luck">Luck</string>
+
+
+
+
+</resources>
