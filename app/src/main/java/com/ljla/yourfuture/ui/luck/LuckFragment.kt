@@ -9,7 +9,9 @@ import com.ljla.yourfuture.R
 import com.ljla.yourfuture.databinding.FragmentHoroscopeBinding
 import com.ljla.yourfuture.databinding.FragmentLuckBinding
 import com.ljla.yourfuture.databinding.FragmentLuckBinding.*
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LuckFragment : Fragment() {
 
     private var _binding: FragmentLuckBinding? = null

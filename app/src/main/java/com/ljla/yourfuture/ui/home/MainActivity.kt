@@ -9,7 +9,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.ljla.yourfuture.R
 import com.ljla.yourfuture.databinding.ActivityMainBinding
 import com.ljla.yourfuture.databinding.ActivityMainBinding.*
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

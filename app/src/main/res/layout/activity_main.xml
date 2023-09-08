@@ -6,6 +6,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.MainActivity">
+    
+    <FrameLayout
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:background="@color/primaryDark"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/horoscope_title"
+            android:fontFamily="@font/dancing"
+            android:textColor="@color/secondary"
+            android:textSize="30sp"/>
+
+
+    </FrameLayout>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
@@ -14,10 +35,10 @@
         android:layout_height="0dp"
         app:navGraph="@navigation/main_graph"
         app:defaultNavHost = "true"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@id/bottomNavView"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavView"
@@ -29,7 +50,6 @@
         android:background="@color/primaryDark"
         app:itemIconTint="@color/bottom_nav_selector"
         app:itemTextColor="@color/bottom_nav_selector"
-        app:itemTextAppearanceActive="@color/bottom_nav_selector"
         app:itemActiveIndicatorStyle="@null"
         app:menu="@menu/bottom_menu"
         tools:ignore="VisualLintBottomNav"/>
