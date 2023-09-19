@@ -21,9 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/horoscope_title"
-            android:fontFamily="@font/dancing"
-            android:textColor="@color/secondary"
-            android:textSize="30sp"/>
+            style="@style/Title"/>
 
 
     </FrameLayout>
