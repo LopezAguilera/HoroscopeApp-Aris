@@ -34,7 +34,6 @@
         app:layout_constraintTop_toBottomOf="@+id/ivDetail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Horoscopo App"
         style="@style/Title"
         android:padding="8dp"/>
     
@@ -46,18 +45,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Si hoy te enfrentas a una bronca
-        por parte de tus superiores por un error que has
-        cometido involuntariamente, no te pongas a la
-        defensiva, Escorpio. Es mejor reconocer con humildad
-        que te has equivocado y de paso expresar esa
-        buena disposición que tienes a diario para
-        arreglar el desaguisado"
         android:layout_margin="24dp"
         android:gravity="center"
         style="@style/Body"/>
 
     <ProgressBar
+        android:id="@+id/pb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/gold"

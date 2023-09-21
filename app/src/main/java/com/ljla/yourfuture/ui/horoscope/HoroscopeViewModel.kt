@@ -3,7 +3,6 @@ package com.ljla.yourfuture.ui.horoscope
 import androidx.lifecycle.ViewModel
 import com.ljla.yourfuture.data.proveider.HoroscopeProvider
 import com.ljla.yourfuture.domain.model.HoroscopeInfo
-import com.ljla.yourfuture.domain.model.HoroscopeInfo.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

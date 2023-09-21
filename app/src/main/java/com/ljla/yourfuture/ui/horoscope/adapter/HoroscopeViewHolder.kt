@@ -2,7 +2,6 @@ package com.ljla.yourfuture.ui.horoscope.adapter
 
 import android.view.View
 import android.view.animation.LinearInterpolator
-import androidx.core.graphics.rotationMatrix
 import androidx.recyclerview.widget.RecyclerView
 import com.ljla.yourfuture.databinding.ItemHoroscopeBinding
 import com.ljla.yourfuture.domain.model.HoroscopeInfo
