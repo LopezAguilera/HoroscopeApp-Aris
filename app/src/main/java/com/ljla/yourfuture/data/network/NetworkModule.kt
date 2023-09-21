@@ -1,5 +1,6 @@
 package com.ljla.yourfuture.data.network
 
+import com.ljla.yourfuture.data.core.interceptors.AuthInterceptor
 import com.ljla.yourfuture.data.proveider.RepositoryImpl
 import com.ljla.yourfuture.domain.Repository
 import dagger.Module
@@ -29,13 +30,14 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
 
         val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
         return OkHttpClient
             .Builder()
             .addInterceptor(interceptor)
+            .addInterceptor(authInterceptor)
             .build()
     }
 

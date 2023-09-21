@@ -4,6 +4,8 @@
         <item name="android:statusBarColor">@color/secondary</item>
     </style>
 
+    <style name="Theme.YourFuture" parent="Base.Theme.YourFuture" />
+
     <style name="Title">
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/dancing</item>
@@ -13,8 +15,8 @@
 
     <style name="Body" parent="Title">
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="Theme.YourFuture" parent="Base.Theme.YourFuture" />
+
 </resources>
