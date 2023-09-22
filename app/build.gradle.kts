@@ -21,18 +21,34 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
+            isDebuggable = false
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            resValue("string", "release", "[RELEASE] - tu futuro")
+
+            buildConfigField("String", "BASE_URL", "\"https://newastro.vercel.app/\"")
+            isDebuggable = true
+        }
+        getByName("debug"){
+
+            resValue("string", "debug", "[DEBUG] - tu futuro")
+
+
+            buildConfigField("String", "BASE_URL", "\"https://newastro-debug.vercel.app/\"")
+
         }
 
     }
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 
     compileOptions {
