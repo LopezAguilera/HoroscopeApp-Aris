@@ -21,34 +21,18 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        release {
             isMinifyEnabled = false
-            isDebuggable = false
-
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-
-            resValue("string", "release", "[RELEASE] - tu futuro")
-
-            buildConfigField("String", "BASE_URL", "\"https://newastro.vercel.app/\"")
-            isDebuggable = true
-        }
-        getByName("debug"){
-
-            resValue("string", "debug", "[DEBUG] - tu futuro")
-
-
-            buildConfigField("String", "BASE_URL", "\"https://newastro-debug.vercel.app/\"")
-
         }
 
     }
 
     buildFeatures {
         viewBinding = true
-        buildConfig = true
     }
 
     compileOptions {
@@ -64,7 +48,7 @@ dependencies {
 
 
     //NavComponent
-    val navVersion = "2.7.1"
+    val navVersion = "2.7.2"
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
@@ -78,7 +62,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.3.1")
 
 
-    implementation("androidx.core:core-ktx:1.10.1")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")

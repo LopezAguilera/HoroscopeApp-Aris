@@ -1,6 +1,5 @@
 package com.ljla.yourfuture.data.network
 
-import com.ljla.yourfuture.BuildConfig.BASE_URL
 import com.ljla.yourfuture.data.core.interceptors.AuthInterceptor
 import com.ljla.yourfuture.data.proveider.RepositoryImpl
 import com.ljla.yourfuture.domain.Repository
@@ -23,7 +22,7 @@ object NetworkModule {
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit
             .Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl("https://newastro.vercel.app/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

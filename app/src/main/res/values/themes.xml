@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.YourFuture" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/secondary</item>
+        <item name="android:navigationBarColor">@color/secondary</item>
     </style>
 
     <style name="Theme.YourFuture" parent="Base.Theme.YourFuture" />
