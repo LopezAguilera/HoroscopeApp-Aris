@@ -1,6 +1,8 @@
 package com.ljla.yourfuture.ui.luck
 
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +17,7 @@ import androidx.fragment.app.Fragment
 import com.ljla.yourfuture.R
 import com.ljla.yourfuture.databinding.FragmentLuckBinding
 import com.ljla.yourfuture.databinding.FragmentLuckBinding.inflate
+import com.ljla.yourfuture.ui.core.listeners.OnSwipeTouchListener
 import com.ljla.yourfuture.ui.providers.RandomCardProvider
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Random
@@ -40,15 +43,39 @@ class LuckFragment : Fragment() {
     }
 
     private fun preparePrediction() {
-        val luck = randomCardProvider.getLucky()
-        luck?.let {
-            binding.tvLucky.text = getString(it.text)
-            binding.ivLuckyCard.setImageResource(it.image)
+        val currentLuck = randomCardProvider.getLucky()
+        currentLuck?.let { luck ->
+            val currentPrediction = getString(luck.text)
+            binding.tvLucky.text = currentPrediction
+            binding.ivLuckyCard.setImageResource(luck.image)
+            binding.tvShare.setOnClickListener { shareResult(currentPrediction) }
         }
     }
 
+    private fun shareResult(prediction: String) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, prediction)
+            type = ("text/plain")
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
     private fun initListeners() {
-        binding.ivRoulette.setOnClickListener { spinRoulette() }
+       // binding.ivRoulette.setOnClickListener { spinRoulette() }
+
+        binding.ivRoulette.setOnTouchListener(object : OnSwipeTouchListener(requireContext()){
+            override fun onSwipeRight() {
+                spinRoulette()
+            }
+
+            override fun onSwipeLeft() {
+                spinRoulette()
+            }
+        })
     }
 
     private fun spinRoulette() {
@@ -64,9 +91,9 @@ class LuckFragment : Fragment() {
     }
 
     private fun slideCard() {
-        val slideUpAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_up )
+        val slideUpAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_up)
 
-        slideUpAnimation.setAnimationListener(object : Animation.AnimationListener{
+        slideUpAnimation.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(p0: Animation?) {
                 binding.reverse.isVisible = true
             }
@@ -85,9 +112,9 @@ class LuckFragment : Fragment() {
     }
 
     private fun growCard() {
-        val growAnimation = AnimationUtils.loadAnimation(requireContext(),R.anim.grow_card)
+        val growAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.grow_card)
 
-        growAnimation.setAnimationListener(object : Animation.AnimationListener{
+        growAnimation.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(p0: Animation?) {
                 binding.reverse.isVisible = false
                 showPremonitionView()
@@ -108,7 +135,7 @@ class LuckFragment : Fragment() {
         val appearAnimation = AlphaAnimation(0.0f, 1.0f)
         appearAnimation.duration = 1000
 
-        disappearAnimation.setAnimationListener(object : Animation.AnimationListener{
+        disappearAnimation.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(p0: Animation?) {}
 
             override fun onAnimationEnd(p0: Animation?) {
